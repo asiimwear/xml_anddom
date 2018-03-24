@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buisness Card DOM Example 1 </title>
+    <script type="text/javascript">
+        function displayBusinessCardData(){
+            var xmldata1 = document.getElementById("xmldata1");
+            var bizCard = xmldata1.getElementsByTagName("BusinessCard")[0];
+
+            var name = "name:" + bizCard.getElementByTagName("name")[0].firstChild.data;
+            var phone1Label = bizCard.getElementByTagName("phone")[0].getAttribute("type")+":";
+            var phone1 = phone1Label+bizCard.getElementByTagName("phone")[0].firstChild.data;
+            var phone2Label = bizCard.getElementByTagName("phone")[1].getActiveAttrib("type")+":";
+            var phone2 = phone2Label + bizCard.getElementByTagName("phone")[1].firstChild.data;
+            var phone3Leabel= bizCard.getElementByTagName("phone")[2].getActiveAttrib("type") + ":";
+            var phone3 = phone3Leabel + bizCard.getElementByTagName("phone")[2].firstChild.data;
+            var email = "email:" + bizCard.getElementByTagName("email")[0].firstChild.data;
+            alert("BusinessCard Data:\n\n" +name+"\n"+ phone1+"\n" +phone2+ "\n"+phone3+"\n" +email );
+        }
+    window.addEventListener("load",function(){
+        document.querySelector("#showBCardData").addEventListener("click",displayBuisnessCardData)});
+    </script>
+</head>
+<xml id="xmldata1" style="display:none">
+    <BusinessCard>
+    <name>joseph mukulu</name>
+    <phone type="mobile">070286497</phone>
+    <phone type="work">0705164987</phone>
+    <phone type="fax">25675671286</phone>
+    <email type="gmail">mkuluj1@gmail.com</email>
+    </BusinessCard>
+</xml>
+<button id="showBCardData"> Show Buissness Card Data</button>
+</body>
+
+</html>
